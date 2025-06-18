@@ -6,4 +6,6 @@ for num in original_array:
         result = num +2
         if result not in seen:
             new_array.append(result)
-            seen.add()
+            seen.add(result)
+print("Original array:", original_array)
+print("New array (values > 5, +2, no duplicates):", new_array)
