@@ -12,7 +12,7 @@ def checkmate(board_str):
         if king_pos:
             break
     if not king_pos:
-        # ไม่มี King ในบอร์ด => พิมพ์อะไรดี? ปล่อยเงียบหรือ Fail ก็ได้
+        # ไม่มี King ในบอร์ด = Fail 
         print("Fail")
         return
 
@@ -22,8 +22,7 @@ def checkmate(board_str):
     def inside(r, c):
         return 0 <= r < n and 0 <= c < n
 
-    # 1. ตรวจสอบ Pawn: Pawn โจมตีแบบทแยงหน้าไปด้านบน (คิดว่า Pawn เป็นฝ่ายตรงข้ามขึ้นข้างบน)
-    # สมมติ Pawn ขึ้นไปบนบอร์ดโจมตี King
+    # 1. ตรวจสอบ Pawn: Pawn โจมตีแบบทแยงหน้าไปด้านบน
     for dc in [-1, 1]:
         pr, pc = kr - 1, kc + dc
         if inside(pr, pc) and board[pr][pc] == 'P':
@@ -58,25 +57,5 @@ def checkmate(board_str):
             r += dr
             c += dc
 
-    # ไม่เจออะไร
+    # ถ้าไม่เจออะไร
     print("Fail")
-
-
-# ตัวอย่างทดสอบ
-def main():
-    board1 = """\
-....
-.PP.
-.K..
-...."""
-    checkmate(board1)
-
-    board2 = """\
-....
-.RK.
-....
-...."""
-    checkmate(board2)
-
-if __name__ == "__main__":
-    main()
