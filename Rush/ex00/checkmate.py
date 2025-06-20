@@ -44,7 +44,7 @@ def checkmate(board_str):
             c += dc
 
     # 3. ตรวจสอบ Rook และ Queen (ในแนวตั้งแนวนอน)
-    directions_rook = [(-1,0), (1,0), (0,-1), (0,1)]
+    directions_rook = [(-1,0), (1,0), (0,-1), (0,1), (1,1), (1,-1), (-1,1)]
     for dr, dc in directions_rook:
         r, c = kr + dr, kc + dc
         while inside(r, c):
